@@ -19,3 +19,22 @@ CREATE INDEX idx_property_location ON property(location);
 
 -- Index on review.property_id (used in JOINs and subqueries)
 CREATE INDEX idx_review_property_id ON review(property_id);
+
+
+EXPLAIN ANALYZE
+SELECT *
+FROM booking
+JOIN user ON booking.user_id = user.id
+WHERE booking.status = 'confirmed';
+
+-- Example 2: Analyze property search by location
+EXPLAIN ANALYZE
+SELECT *
+FROM property
+WHERE location = 'Lagos';
+
+-- Example 3: Count bookings per property
+EXPLAIN ANALYZE
+SELECT property_id, COUNT(*)
+FROM booking
+GROUP BY property_id;
