@@ -1,4 +1,4 @@
-
+-- Highlight top-rated properties 
 SELECT *
 FROM property
 WHERE id IN (
@@ -8,7 +8,7 @@ WHERE id IN (
     HAVING AVG(rating) > 4.0
 );
 
-
+-- Identify repeat customers 
 SELECT *
 FROM user u
 WHERE (
