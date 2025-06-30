@@ -16,11 +16,12 @@ SELECT
     property.id AS property_id,
     property.name,
     review.id AS review_id,
+    review.created_at AS reviewed_date,
     review.rating,
     review.comment
 FROM property
-LEFT JOIN review ON property.id = review.property_id;
-
+LEFT JOIN review ON property.id = review.property_id
+ORDER BY reviewed_date;
     -- This query retrieves property details along with any reviews associated with that property.  
 
 
